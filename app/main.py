@@ -1,4 +1,5 @@
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from sqlmodel import Session
 from app.database import create_db_and_tables, engine
 from app.models import User
@@ -7,6 +8,15 @@ from app.job_routes import router as job_router
 from app.tool_routes import router as tool_router
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Use specific domains in production
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 app.include_router(job_router)
 app.include_router(tool_router)
 
