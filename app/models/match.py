@@ -8,3 +8,4 @@ class Match(SQLModel, table=True):
     worker_id: int
     response: Optional[str] = None
     responded_at: Optional[datetime]
+    confirmed: bool = False
