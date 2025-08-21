@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from sqlmodel import SQLModel
 from app.db.session import engine
-from app.api import register, jobs
+from app.api import register, jobs, respond
 
 app = FastAPI()
 
@@ -11,3 +11,4 @@ def on_startup():
 
 app.include_router(register.router)
 app.include_router(jobs.router)
+app.include_router(respond.router)
