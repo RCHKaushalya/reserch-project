@@ -3,6 +3,8 @@ from sqlmodel import SQLModel
 from app.db.session import engine
 from app.api import register, jobs, respond, dashboard, feedback
 from pydantic import BaseModel
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 
 app = FastAPI()
 
@@ -15,6 +17,29 @@ app.include_router(jobs.router)
 app.include_router(respond.router)
 app.include_router(dashboard.router)
 app.include_router(feedback.router)
+
+# Mount static files (like CSS, JS, images)
+app.mount("/static", StaticFiles(directory="app/static"), name="static")
+
+@app.get("/")
+def serve_index():
+    return FileResponse("app/static/index.html")
+
+@app.get("/verify")
+def serve_verify():
+    return FileResponse("app/static/verify.html")
+
+@app.get("/post-job")
+def serve_post_job():
+    return FileResponse("app/static/post_job.html")
+
+@app.get("/respond")
+def serve_respond():
+    return FileResponse("app/static/response.html")
+
+@app.get("/confirm")
+def serve_confirm():
+    return FileResponse("app/static/confirm.html")
 
 
 @app.post("/sms-webhook")

@@ -1,0 +1,14 @@
+body {
+  font-family: sans-serif;
+  padding: 2rem;
+  background: #f9f9f9;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+input, button {
+  padding: 0.5rem;
+  font-size: 1rem;
+}

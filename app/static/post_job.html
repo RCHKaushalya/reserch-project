@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+  <meta charset="UTF-8" />
+  <title>රැකියාවක් පළ කරන්න</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <h2>🛠️ රැකියාවක් පළ කරන්න</h2>
+  <form action="/api/post-job" method="post">
+    <label>සේවාවේ වර්ගය:</label>
+    <input type="text" name="category" placeholder="මැසන් වැඩ, සිවිල්" required />
+
+    <label>ස්ථානය:</label>
+    <input type="text" name="location" placeholder="Trincomalee, Galle" required />
+
+    <label>පිටුදැකීම:</label>
+    <input type="text" name="budget" placeholder="Rs. 5000" />
+
+    <label>සේවාව ඉල්ලන පරිශීලක ID:</label>
+    <input type="number" name="posted_by" placeholder="1" required />
+
+    <button type="submit">පළ කරන්න</button>
+  </form>
+</body>
+</html>

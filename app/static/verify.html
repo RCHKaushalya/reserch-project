@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+  <meta charset="UTF-8" />
+  <title>OTP තහවුරු කිරීම</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <h2>🔐 OTP තහවුරු කරන්න</h2>
+  <form action="/api/otp/verify" method="post">
+    <label>දුරකථන අංකය:</label>
+    <input type="text" name="phone_number" placeholder="07XXXXXXXX" required />
+
+    <label>OTP කේතය:</label>
+    <input type="text" name="otp" placeholder="XXXXXX" required />
+
+    <button type="submit">තහවුරු කරන්න</button>
+  </form>
+</body>
+</html>
